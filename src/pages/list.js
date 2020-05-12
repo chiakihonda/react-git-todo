@@ -27,16 +27,18 @@ class List extends React.Component {
   constructor(props){
     super(props);
     this.state={
-      todoList:todoList
+      todoList:[]
     }
   }
-  todoSet(){
+  featchTodoList(){
     this.setState({
-      todoList:[todoList]
+      todoList:todoList
       }
     );
   }
-
+  componentDidMount() {
+    this.featchTodoList()
+  }
       render(){
         console.log("stateTodoList",this.state.todoList);
         return(
