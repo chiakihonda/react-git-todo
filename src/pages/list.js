@@ -40,7 +40,6 @@ class List extends React.Component {
     this.featchTodoList()
   }
       render(){
-        console.log("stateTodoList",this.state.todoList);
         return(
           <div className="wrapper">
             <header>
