@@ -8,22 +8,14 @@ import Set from "./pages/set";
 class App extends React.Component{
   render(){
     return(
-      <List/>
-    );
-  }
-}
-
-class Appp extends React.Component {
-  render() {
-    return (
-      <BrowserRouter>
       <div>
+      <BrowserRouter>
         <Switch>
           <Route exact path='/'component={List} />
           <Route path='/set' component={Set} />
         </Switch>
-      </div>
     </BrowserRouter>
+    </div>
     );
   }
 }

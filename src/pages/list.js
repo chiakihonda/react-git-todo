@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link,BrowserRouter, Switch,Route } from 'react-router-dom';
 import Set from "./set";
-import App from '../App';
 
 const todoList= [{
   id:'1',
