@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link,BrowserRouter, Switch,Route } from 'react-router-dom';
+import Set from "./set";
+import App from '../App';
 
 const todoList= [{
   id:'1',
@@ -39,12 +42,20 @@ class List extends React.Component {
   componentDidMount() {
     this.featchTodoList()
   }
+
+  handleToList = () => {
+    this.props.history.push('/')
+  }
+  handleToSet = () => {
+    this.props.history.push('/set')
+  }
+
       render(){
         return(
           <div className="wrapper">
             <header>
-              <button>List(active)</button>
-              <button>Set</button>
+              <button onClick={this.handleToList}>List(active)</button>
+              <button onClick={this.handleToSet}>Set</button>
               <h1>Todo List</h1>
             </header>
             <table className="todo">
@@ -74,6 +85,7 @@ class List extends React.Component {
               </tbody>
             </table>
           </div>
+          
         );
     }
   }

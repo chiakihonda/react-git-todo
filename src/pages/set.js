@@ -15,6 +15,5 @@ class Set extends React.Component {
         );
     }
   }
-
   export default Set;
   
