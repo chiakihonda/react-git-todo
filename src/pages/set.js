@@ -1,13 +1,49 @@
 import React from 'react';
 
+ //データの格納
+  let submitData = {
+    title:'',
+    content:'',
+    category:'',
+  };
+  let submitDataJSON = JSON.stringify(submitData);
+  console.log(submitDataJSON);
+
+
 class Set extends React.Component {
     handleToList = () => {
         this.props.history.push('/')
       }
-      handleToSet = () => {
-        this.props.history.push('/set')
+    handleToSet = () => {
+      this.props.history.push('/set')
+    }
+
+      constructor(props) {
+        super(props);
+        this.state = {
+          //textareaのstate管理
+          title:'',
+          content:'',
+          category:'',
+        };
       }
       
+      //onChangeの際のメソッド
+      handleTitleChange(event){
+        //入力値を取得する(event.target.valueは定型)
+        const inputValue=event.target.value;
+        //入力値でstateを更新
+        this.setState({title:inputValue});
+      }
+      handleContentChange(event2){
+        const inputValue=event2.target.value;
+        this.setState({content:inputValue});
+      }
+      handleCategoryChange(event3){
+        const inputValue=event3.target.value;
+        this.setState({category:inputValue});
+      }
+     
     render(){
         return(
             <div className="setPage">
@@ -17,14 +53,17 @@ class Set extends React.Component {
               <h1>登録画面</h1>
             </header>
                 <p>タイトル</p>
-                <textarea></textarea>
+                {/*valueで入力値とstateを紐づける、 onChangeでeventを引数にしてhandleTitleChangeメソッドを呼び出す*/}
+                <textarea value={this.state.title} onChange={(event)=>{this.handleTitleChange(event)} } ></textarea>
                 <p>内容</p>
-                <textarea></textarea>
+                <textarea value={this.state.content} onChange={(event2)=>{this.handleContentChange(event2)} }></textarea>
                 <p>カテゴリ</p>
-                <textarea></textarea>
+                <textarea value={this.state.category} onChange={(event3)=>{this.handleCategoryChange(event3)} }></textarea>
+                <br /><input type="submit" value="送信" onclick={(clickEvent)=>{this.SubmitClick(clickEvent)}} />
             </div>
         );
     }
-  }
+}
+
   export default Set;
   
